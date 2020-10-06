@@ -1,0 +1,17 @@
+# Byte-compiled
+__pycache__/
+*.pyc
+
+# environment variables file
+.env
+todo_env/
+env/
+
+# vscode editor settings
+.vscode/
+
+# migrations folder
+migrations/
+
+# instance folder
+instance/

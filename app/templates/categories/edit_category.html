@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block title %}{{ title }}{% endblock %} {% block
+content %}
+<div class="container tasks-new-task col-md-6">
+  <h2>Editer Category</h2>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="alert alert-danger">
+        {{ messages[0] }}
+      </div>
+    {% endif %}
+  {% endwith %}
+  <form
+    action="{{ url_for('category.edit_category', id=category.id) }}"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <div class="form-group">
+      {{ form.csrf_token }}
+      <div class="form-group">
+        {{ form.title.label }} {{ form.title(class='form-control',
+        placeholder='Ajouter le titre de category',
+        value=category.title) }}
+      </div>
+      <div class="form-group form-btn">
+        {{ form.submit(class='btn btn-primary', value="modifié category") }}
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

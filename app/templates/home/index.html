@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block title %}{{ title }}{% endblock %} {% block
+content %} {% if not current_user.is_authenticated %}
+
+<div class="home-no-auth">
+  <h1>Organisez tout avec <span>Todoist</span></h1>
+
+  <img
+    src="{{ url_for('static', filename='images/todo-list.svg') }}"
+    alt="todo-list app"
+  />
+
+  <a class="btn__get-started" href="{{ url_for('auth.login') }}">Commencer</a>
+</div>
+
+{% else %}
+
+<div class="container home-screen">
+  <div class="col-md-6 mx-auto" style="text-align: center;">
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="alert alert-danger">{{ messages[0] }}</div>
+    {% endif %} {% endwith %}
+  </div>
+  <h3>Welcome, <span>{{ current_user.username }}</span> 🎉</h3>
+  <div class="mb-4">
+    <h5>Your category is <span>{{ current_user.category.title }}</span>, You have <span>{{ current_user.tasks.all()|length }}</span> tasks.</h5>
+  </div>
+  <div class="show-tasks">
+    {% if tasks|length <= 0 %}
+      <p>
+        Il n'y a pas des tâches pour toi.
+      </p>
+    {% else %}
+      <ul>
+        {% for task in tasks %}
+          <li>
+            <span>title:</span> {{ task.title }} <span class="bars">|</span> <span>date:</span> {{ task.date.strftime('%d-%m-%Y') }} <span class="bars">|</span> <span>complete:</span> {% if task.complete %} Terminé {% else %} Incomplète {% endif %}
+          </li>
+          <hr />
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+
+{% endif %} {% endblock %}

@@ -1,0 +1,378 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  padding-bottom: 4rem;
+  background: #fbfbfb;
+}
+
+.home-no-auth h1 {
+  text-align: center;
+  font-weight: 900;
+  font-size: 5rem;
+  max-width: 60rem;
+  margin: 4rem auto;
+}
+
+.home-no-auth h1 > span {
+  color: #ef4c55;
+}
+
+img {
+  display: block;
+  margin: 0 auto 4rem;
+}
+
+h1,
+h2,
+h4,
+p {
+  font-family: "Arvo", serif;
+}
+
+p {
+  font-size: 17px;
+}
+
+h5 > span {
+  font-weight: 600;
+  color: #28a745;
+}
+
+/* Buttons styles */
+.btn__get-started {
+  background: #ef4c55;
+  color: white;
+  font-weight: 900;
+  width: 22%;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  display: block;
+  border-radius: 7px;
+  letter-spacing: 1.2px;
+  text-decoration: none !important;
+}
+
+.btn__get-started:hover {
+  background: #e43842;
+  color: white;
+  cursor: pointer;
+}
+
+/* navbar styles */
+
+.navbar {
+  background: white !important;
+  box-shadow: 1px 6px 28px #eaeaea;
+}
+
+.navbar-light .navbar-brand {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #212529;
+  letter-spacing: 1.5px;
+}
+
+.btn__login {
+  border: 0;
+  background: #ef4c55;
+  color: white;
+  padding: 6px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: capitalize;
+  margin: 0 1rem;
+  outline: none;
+  box-shadow: none;
+}
+
+.btn__login:hover {
+  color: white;
+  background: #e43842;
+}
+
+.btn__register {
+  color: #ff9800 !important;
+}
+
+.navbar-right-links a {
+  text-decoration: none;
+  color: #212529;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: 0.3s all;
+}
+
+.navbar-right-links a:hover {
+  color: #e91e63;
+}
+
+.navbar-right-links .btn {
+  color: white;
+  background: #e91e63;
+  border: none;
+}
+
+.navbar-right-links .btn:hover {
+  color: white;
+  background: #ef4c55;
+}
+
+/* Forms styles */
+/* register form */
+
+.StyleForm .container {
+  width: 80%;
+  margin: 50px auto;
+  box-shadow: 1px 10px 20px #ececec;
+  border-radius: 5px;
+  background: white;
+  padding: 30px;
+}
+
+.StyleForm .container .leftSide {
+  padding: 20px;
+}
+
+.StyleForm .container .leftSide > img {
+  width: 100%;
+  position: relative;
+  top: 110px;
+}
+
+.StyleForm .container .rightSide > h1 {
+  margin-bottom: 20px;
+  color: #212529;
+  font-weight: bold;
+  text-align: center;
+}
+
+.StyleForm .container .rightSide > form .form-group label {
+  margin-bottom: 0;
+}
+
+.StyleForm .container .rightSide > form input[type="submit"] {
+  width: 100%;
+  margin: 25px 0;
+  background: #2f2e41;
+  border: none;
+  color: white;
+}
+
+/* login form */
+.resetImg {
+  width: 100%;
+  position: relative;
+  top: 35px !important;
+}
+
+/* task pages styles */
+
+/* all tasks page styles */
+.all-tasks {
+  margin-top: 4rem;
+  background: #fff;
+  padding: 30px;
+  box-shadow: 1px 10px 20px #ececec;
+  border-radius: 5px;
+}
+
+.all-tasks h2 {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2rem;
+  margin: 1rem 0 2rem;
+  color: #212529;
+  text-transform: capitalize;
+}
+
+.all-tasks table tbody tr .crud-operations a {
+  text-decoration: none;
+  margin: 0 3px;
+  color: #353535;
+  transition: 0.3s all ease-in-out;
+}
+
+.all-tasks table tbody tr .crud-operations form button {
+  border: none;
+  background: no-repeat;
+  color: #353535;
+  transition: 0.3s all ease-in-out;
+}
+
+.all-tasks table tbody tr .crud-operations form button:hover {
+  color: #00bcd4;
+}
+
+.all-tasks table tbody tr .crud-operations a:hover {
+  color: #00bcd4;
+}
+.all-tasks table tbody tr td {
+  font-weight: 600;
+  font-size: 22px;
+  text-align: left;
+}
+
+.all-tasks table tbody tr .show-todo-title {
+  max-width: 120px;
+  overflow-wrap: break-word;
+}
+
+.all-tasks table tbody tr td > span {
+  font-weight: 900;
+}
+
+.all-tasks table tbody tr td > .task-completed {
+  color: #4caf50;
+}
+
+.all-tasks table tbody tr td > .task-uncompleted {
+  color: #ff5722;
+}
+
+.all-tasks table tbody tr .no-tasks {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 900;
+  color: #ff5722;
+}
+
+/* add new task page */
+
+.tasks-new-task {
+  margin-top: 4rem;
+  background: #fff;
+  padding: 30px;
+  box-shadow: 1px 10px 20px #ececec;
+  border-radius: 5px;
+}
+
+.tasks-new-task h2 {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2rem;
+  margin: 1rem 0 2rem;
+  color: #212529;
+  text-transform: capitalize;
+}
+
+.tasks-new-task form .form-btn {
+  text-align: center;
+}
+
+.tasks-new-task form .btn {
+  font-size: 18px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: #ef4c55;
+  color: white;
+  border: none;
+  width: 40%;
+  margin: 2rem auto 0;
+}
+
+.tasks-new-task form .btn:hover {
+  color: white;
+  background: #e43842;
+}
+
+/* datepicker styles */
+.datepicker-dropdown {
+  width: auto;
+}
+
+.datepicker-dropdown .datepicker-days .table-condensed thead tr th.dow {
+  padding: 15px;
+  color: #e43842;
+}
+
+/* Home Page Styles */
+.home-screen {
+  margin-top: 4rem;
+  background: #fff;
+  padding: 30px;
+  box-shadow: 1px 10px 20px #ececec;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.home-screen h3 {
+  margin-bottom: 4rem;
+}
+
+.home-screen h3 > span {
+  color: #e91e63;
+}
+
+.home-screen hr {
+  border: 1px solid #212529;
+  width: 10%;
+  margin: 1.5rem auto;
+  border-radius: 50px;
+}
+
+.home-screen .show-tasks {
+  text-align: center;
+}
+
+.home-screen .show-tasks p {
+  font-weight: 900;
+  font-size: 20px;
+  color: #607d8b;
+}
+
+.home-screen .show-tasks ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.home-screen .show-tasks ul li {
+  display: inline-block;
+}
+
+.home-screen .show-tasks ul li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin-right: 1rem;
+  background: #ff9800;
+  display: inline-block;
+  border-radius: 50px;
+}
+
+.home-screen .show-tasks ul li > span {
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-right: 3px;
+}
+
+.home-screen .show-tasks ul li > .bars {
+  margin: 0 15px;
+}
+
+/* Category styles */
+.add-category-btn {
+  float: right;
+  margin-bottom: 10px;
+  background: #8bc34a;
+  padding: 7px 14px;
+  color: white;
+  font-weight: 600;
+  text-transform: capitalize;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: .3s all ease-in-out;
+}
+
+.add-category-btn:hover {
+  background: #639a24;
+  color: white;
+  text-decoration: none;
+}

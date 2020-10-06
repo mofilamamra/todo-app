@@ -1,0 +1,82 @@
+{% extends "base.html" %} {% block title %}{{ title }}{% endblock %} {% block
+content %}
+
+<div class="container all-tasks col-md-11">
+  <table class="table table-striped">
+    <div>
+      <h2>All Taches</h2>
+    </div>
+    <a class="add-category-btn" href="{{ url_for('task.new_task') }}">Ajouter tâche</a>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titre de tache</th>
+        <th scope="col">Assignée à</th>
+        <th scope="col">Date</th>
+        <th scope="col">Statut</th>
+        <th scope="col">Opérations</th>
+      </tr>
+    </thead>
+    {% if tasks|length <= 0 %} 
+    <tbody>
+      <tr>
+        <td colspan="5" class="no-tasks">Il n'y a pas encore des tâches.</td>
+      </tr>
+    </tbody>
+    {% else %}
+    <tbody>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="alert alert-success">
+            {{ messages[0] }}
+          </div>
+        {% endif %}
+      {% endwith %}
+      {% for task in tasks %}
+      <tr>
+        <th scope="row">{{ loop.index }}</th>
+        <td class="show-todo-title">{{ task.title }}</td>
+        <td>{{ task.user.username }}</td>
+        <td>
+          {{ task.date.strftime('%d-%m-%Y') }}
+        </td>
+        <td>
+          {% if task.complete %}
+          <span class="task-completed">Terminé</span>
+          {% else %}
+          <span class="task-uncompleted">Incomplète</span>
+          {% endif %}
+        </td>
+        <td class="crud-operations">
+          {% if current_user.id == task.user.id or current_user.is_admin() %}
+          <a href="{{ url_for('task.complete', id=task.id) }}">
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </a>
+          <a href="{{ url_for('task.edit_task', id=task.id) }}">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </a>
+          <a href="{{ url_for('task.download', id=task.id) }}" target="_blank">
+            <i class="fa fa-download" aria-hidden="true"></i>
+          </a>
+          {% endif %}
+          {% if current_user.is_admin() %}
+          <form
+            id="delete-task"
+            action="{{ url_for('task.delete', id=task.id) }}"
+            style="display: inline"
+            method="POST"
+          >
+            <button type="submit">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </form>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    {% endif %}
+  </table>
+</div>
+
+{% endblock %}

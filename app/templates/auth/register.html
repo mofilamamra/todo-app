@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  <div class="StyleForm">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 leftSide">
+          <img class="" src="{{ url_for('static', filename='images/register.svg') }}" alt="register photo">
+        </div>
+        <div class="col-xs-12 col-sm-6 rightSide">
+          <h1>Register</h1>
+          {% from '_renderForm.html' import render_field %}
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <div class="alert alert-danger">
+                {{ messages[0] }}. Go to <a href="{{url_for('auth.login')}}">login page</a>
+              </div>
+            {% endif %}
+          {% endwith %}
+          <form action="{{ url_for('auth.register') }}" method="POST">
+            <div class="form-group">
+              {{ form.csrf_token }}
+              {{ render_field(form.email) }}
+              {{ render_field(form.username) }}
+              {{ render_field(form.password) }}
+              {{ render_field(form.confirm) }}
+              {{ render_field(form.category) }}
+              <div class="form-group">
+                {{ form.submit(class='btn btn-primary') }}
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  <div class="StyleForm">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 leftSide">
+          <img class="resetImg" src="{{ url_for('static', filename='images/login.svg') }}" alt="login photo">
+        </div>
+        <div class="col-xs-12 col-sm-6 rightSide">
+          <h1>Login</h1>
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <div class="alert alert-danger">
+                {{ messages[0] }}
+              </div>
+            {% endif %}
+          {% endwith %}
+          <form action="{{ url_for('auth.login') }}" method='POST'>
+            <div class="form-group">
+              {{ form.csrf_token }}
+              <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email(class='form-control') }}
+              </div>
+              <div class="form-group">
+                {{ form.password.label }}
+                {{ form.password(class='form-control') }}
+              </div>
+              <div class="form-group">
+                {{ form.submit(class='btn btn-primay') }}
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

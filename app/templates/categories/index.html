@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block title %}{{ title }}{% endblock %} {% block
+content %}
+
+<div class="container all-tasks col-md-8">
+  <table class="table table-striped">
+    <div>
+      <h2>All categories</h2>
+    </div>
+    <a class="add-category-btn" href="{{ url_for('category.new_category') }}">Ajouter categorie</a>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titre de categorie</th>
+        <th scope="col">number of employees</th>
+        <th scope="col">Opérations</th>
+      </tr>
+    </thead>
+    {% if categories|length <= 0 %} 
+    <tbody>
+      <tr>
+        <td colspan="5" class="no-tasks">Il n'y a pas encore des categories.</td>
+      </tr>
+    </tbody>
+    {% else %}
+    <tbody>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="alert alert-success">
+            {{ messages[0] }}
+          </div>
+        {% endif %}
+      {% endwith %}
+      {% for category in categories %}
+      <tr>
+        <th scope="row">{{ loop.index }}</th>
+        <td>{{ category.title }}</td>
+        <td> {{ category.users.all()|length }} </td>
+        <td class="crud-operations">
+          <a href="{{ url_for('category.edit_category', id=category.id) }}">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </a>
+          <form
+            id="delete-category"
+            action="{{ url_for('category.delete', id=category.id) }}"
+            style="display: inline"
+            method="POST"
+          >
+            <button type="submit">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    {% endif %}
+  </table>
+</div>
+
+{% endblock %}
